@@ -21,7 +21,7 @@ export function Essence() {
           <Reveal>
             <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">A Essência</p>
             <h2 className="font-serif text-4xl md:text-5xl leading-tight text-foreground">
-              Afeto, cuidado e acolhimento — <em className="text-caramel">eis o nosso ofício.</em>
+              Afeto, cuidado e acolhimento. <em className="text-caramel">Eis o nosso ofício.</em>
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
               Fundada em 2017 por Samira Norbim, a Colher de Pau nasceu para ser um refúgio.
@@ -48,7 +48,7 @@ export function Essence() {
               <p className="text-sm text-foreground/80 leading-relaxed">
                 <span className="font-medium">Um lembrete delicado:</span> tudo é preparado de forma artesanal.
                 Em finais de semana movimentados, alguns pratos pedem o tempo que a alta qualidade exige.
-                Aproveite para <em>desacelerar</em> — vale cada minuto.
+                Aproveite para <em>desacelerar</em>. Vale cada minuto.
               </p>
             </div>
           </Reveal>

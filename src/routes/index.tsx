@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Colher de Pau · Cafeteria & Bistrô em Vila Velha" },
-      { name: "description", content: "Um cantinho de Paris em Vila Velha — ES. Cafeteria especializada, confeitaria artesanal e bistrô de fermentação natural desde 2017." },
+      { name: "description", content: "Um cantinho de Paris em Vila Velha, ES. Cafeteria especializada, confeitaria artesanal e bistrô de fermentação natural desde 2017." },
       { property: "og:title", content: "Colher de Pau · Cafeteria & Bistrô" },
       { property: "og:description", content: "Experiências gastronômicas com afeto, em Itaparica e Praia da Costa." },
     ],

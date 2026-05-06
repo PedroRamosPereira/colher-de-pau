@@ -7,7 +7,7 @@ import { Sparkles } from "lucide-react";
 
 type Pick = { name: string; desc: string; price: string; image: string; tag: string };
 
-// 7 curadorias — uma para cada dia da semana, garantindo variedade
+// 7 curadorias, uma para cada dia da semana, garantindo variedade
 const weekly: Pick[][] = [
   // Domingo
   [
@@ -18,8 +18,8 @@ const weekly: Pick[][] = [
   // Segunda
   [
     { tag: "Quentinho da semana", name: "Chocolate Colher de Pau", desc: "Chocolate cremoso com marshmallow tostado.", price: "R$ 30", image: coffeeImg },
-    { tag: "Doce do dia", name: "Bolo da Tarde", desc: "Bolo da vovó — consultar sabores da vitrine.", price: "R$ 22", image: cakesImg },
-    { tag: "Salgado do dia", name: "Croissant Caprese", desc: "Folhado com tomate, muçarela e manjericão fresco.", price: "—", image: empanadaImg },
+    { tag: "Doce do dia", name: "Bolo da Tarde", desc: "Bolo da vovó. Consultar sabores da vitrine.", price: "R$ 22", image: cakesImg },
+    { tag: "Salgado do dia", name: "Croissant Caprese", desc: "Folhado com tomate, muçarela e manjericão fresco.", price: "sob consulta", image: empanadaImg },
   ],
   // Terça
   [
@@ -31,19 +31,19 @@ const weekly: Pick[][] = [
   [
     { tag: "Brunch do dia", name: "Brunch Samira", desc: "Waffle com nutella e morango, panquecas, toast e café filtrado.", price: "R$ 105", image: empanadaImg },
     { tag: "Refrescante", name: "MaraCoffee", desc: "Geleia de maracujá, água tônica, gelo e espresso.", price: "R$ 28", image: coffeeImg },
-    { tag: "Doce do dia", name: "Trio de Bolos", desc: "Três sabores clássicos com calda — para compartilhar.", price: "R$ 70", image: cakesImg },
+    { tag: "Doce do dia", name: "Trio de Bolos", desc: "Três sabores clássicos com calda, para compartilhar.", price: "R$ 70", image: cakesImg },
   ],
   // Quinta
   [
     { tag: "Sugestão da Chef", name: "Croissant Pistache", desc: "Recheado com brigadeiro de pistache.", price: "R$ 49", image: cakesImg },
     { tag: "Café do dia", name: "Latte Macchiato", desc: "Leite vaporizado com espresso encorpado.", price: "R$ 17", image: coffeeImg },
-    { tag: "Salgado do dia", name: "Toast Samira", desc: "Pão de fermentação natural com cream cheese, ovos e bacon.", price: "—", image: empanadaImg },
+    { tag: "Salgado do dia", name: "Toast Samira", desc: "Pão de fermentação natural com cream cheese, ovos e bacon.", price: "sob consulta", image: empanadaImg },
   ],
   // Sexta
   [
     { tag: "Sexta-feira pede", name: "Aperol Spritz", desc: "Aperol, água com gás, champagne e toque de laranja.", price: "R$ 38", image: coffeeImg },
     { tag: "Doce do dia", name: "Chocolatudo", desc: "Bolo de chocolate quente com brigadeiro e calda de baunilha.", price: "R$ 45", image: cakesImg },
-    { tag: "Salgado do dia", name: "Croissant Gruyère", desc: "Queijo gruyère, presunto royale e bechamel da casa, gratinado.", price: "—", image: empanadaImg },
+    { tag: "Salgado do dia", name: "Croissant Gruyère", desc: "Queijo gruyère, presunto royale e bechamel da casa, gratinado.", price: "sob consulta", image: empanadaImg },
   ],
   // Sábado
   [

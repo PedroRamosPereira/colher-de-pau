@@ -1,19 +1,22 @@
-import { MapPin, MessageCircle, Compass } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 
 const houses = [
   {
     name: "Unidade Praia de Itaparica",
-    address: "Rua Ibitirama, 253 — Praia de Itaparica",
-    city: "Vila Velha — ES · CEP 29102-130",
+    address: "Rua Ibitirama, 253, Praia de Itaparica",
+    city: "Vila Velha, ES · CEP 29102-130",
     tag: "A casa mãe",
+    to: "/itaparica" as const,
   },
   {
     name: "Unidade Praia da Costa",
-    address: "Rua Rio Branco, 97 — Praia da Costa",
-    city: "Vila Velha — ES · CEP 29101-130",
+    address: "Rua Rio Branco, 97, Praia da Costa",
+    city: "Vila Velha, ES · CEP 29101-130",
     tag: "Nossa irmã à beira-mar",
+    to: "/praia-da-costa" as const,
   },
 ];
 
@@ -44,17 +47,13 @@ export function Houses() {
                     <p className="text-sm text-muted-foreground">{h.city}</p>
                   </div>
                 </div>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Button className="rounded-full bg-caramel hover:bg-bistro text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-                    <MessageCircle className="h-4 w-4 mr-1" /> WhatsApp
-                  </Button>
-                  <Button variant="outline" className="rounded-full border-foreground/20">
-                    <MapPin className="h-4 w-4 mr-1" /> Rota no Maps
+                <div className="mt-8">
+                  <Button asChild className="rounded-full bg-caramel hover:bg-bistro text-primary-foreground">
+                    <Link to={h.to}>
+                      Conhecer esta casa <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
-                <a href="#" className="mt-6 inline-flex items-center gap-2 text-sm text-caramel hover:underline">
-                  <Compass className="h-4 w-4" /> Realizar o Tour Virtual 360º
-                </a>
               </div>
             </Reveal>
           ))}

@@ -12,7 +12,7 @@ export function Footer() {
           </span>
         </a>
         <p className="mt-4 text-sm text-muted-foreground max-w-md mx-auto">
-          Cafeteria & Bistrô · Vila Velha — ES
+          Cafeteria & Bistrô · Vila Velha, ES
         </p>
 
         <div className="mt-8 flex justify-center gap-4">

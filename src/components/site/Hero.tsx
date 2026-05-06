@@ -42,8 +42,11 @@ export function Hero() {
             <Button asChild size="lg" className="rounded-full bg-caramel text-primary-foreground hover:bg-bistro h-12 px-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
               <a href="#cardapio">Desbravar o Cardápio <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-7 border-foreground/30 text-foreground hover:bg-foreground hover:text-background transition-all duration-300">
-              <a href="#encomendas">Nossos Rituais & Encomendas</a>
+            <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-7 border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground transition-all duration-300">
+              <a href="/cardapio.pdf" target="_blank" rel="noopener">Cardápio em PDF</a>
+            </Button>
+            <Button asChild size="lg" className="rounded-full h-12 px-7 bg-[#EA1D2C] text-white hover:bg-[#c8121f] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+              <a href="https://www.ifood.com.br/delivery/vila-velha-es/colher-de-pau" target="_blank" rel="noopener">Pedir no iFood</a>
             </Button>
           </motion.div>
         </div>

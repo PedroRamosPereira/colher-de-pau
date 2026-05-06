@@ -46,8 +46,11 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <Button variant="outline" className="rounded-full border-caramel/40 text-caramel">
-              Delivery iFood
+            <Button asChild variant="outline" className="rounded-full border-caramel/40 text-caramel">
+              <a href="/cardapio.pdf" target="_blank" rel="noopener">Cardápio em PDF</a>
+            </Button>
+            <Button asChild className="rounded-full bg-[#EA1D2C] text-white hover:bg-[#c8121f]">
+              <a href="https://www.ifood.com.br/delivery/vila-velha-es/colher-de-pau" target="_blank" rel="noopener">Pedir no iFood</a>
             </Button>
           </div>
         </div>

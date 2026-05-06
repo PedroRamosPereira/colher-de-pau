@@ -3,7 +3,7 @@ import { PawPrint, Coffee, Moon, Info } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const rituals = [
-  { icon: Coffee, title: "Café da Rainha", text: "Um ritual matinal generoso, servido com docinhos da casa, frutas frescas e o pão do dia." },
+  { icon: Coffee, title: "Café da Rainha", text: "Uma manhã generosa, servida com docinhos da casa, frutas frescas e o pão do dia." },
   { icon: Moon, title: "After Coffee", text: "Quando a tarde se inclina, a casa muda de tom: luz baixa, taças e pratos compartilháveis." },
   { icon: PawPrint, title: "Pet Friendly", text: "Suas varandas recebem com carinho a sua companhia de quatro patas." },
 ];

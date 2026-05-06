@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const links = [
   { href: "#essencia", label: "A Essência" },
+  { href: "#recomendacoes", label: "Recomendações" },
   { href: "#casas", label: "Nossas Casas" },
   { href: "#cardapio", label: "Cardápio Visual" },
   { href: "#encomendas", label: "Encomendas" },
@@ -14,8 +16,11 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <a href="#top" className="font-serif text-2xl tracking-tight text-foreground">
-          Colher <span className="italic text-caramel">de</span> Pau
+        <a href="#top" className="flex items-center gap-3 text-foreground">
+          <img src={logo} alt="Colher de Pau" className="h-12 w-12 object-contain" />
+          <span className="font-serif text-2xl tracking-tight hidden sm:inline">
+            Colher <span className="italic text-caramel">de</span> Pau
+          </span>
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm">
           {links.map((l) => (

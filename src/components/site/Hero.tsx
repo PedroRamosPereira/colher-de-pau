@@ -40,7 +40,7 @@ export function Hero() {
             className="mt-10 flex flex-wrap gap-4"
           >
             <Button asChild size="lg" className="rounded-full bg-caramel text-primary-foreground hover:bg-bistro h-12 px-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
-              <a href="#cardapio">Desbravar o Cardápio <ArrowRight className="ml-1 h-4 w-4" /></a>
+              <a href="#recomendacoes">Recomendações do dia <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-7 border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground transition-all duration-300">
               <a href="/cardapio.pdf" target="_blank" rel="noopener">Cardápio em PDF</a>

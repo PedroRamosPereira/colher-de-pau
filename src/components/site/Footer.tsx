@@ -1,11 +1,15 @@
 import { Instagram } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 text-center">
-        <a href="#top" className="font-serif text-3xl">
-          Colher <span className="italic text-caramel">de</span> Pau
+        <a href="#top" className="inline-flex flex-col items-center gap-3">
+          <img src={logo} alt="Colher de Pau by Samira Norbim" className="h-24 w-24 object-contain" />
+          <span className="font-serif text-3xl">
+            Colher <span className="italic text-caramel">de</span> Pau
+          </span>
         </a>
         <p className="mt-4 text-sm text-muted-foreground max-w-md mx-auto">
           Cafeteria & Bistrô · Vila Velha — ES

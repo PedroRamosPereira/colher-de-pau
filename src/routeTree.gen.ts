@@ -9,8 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PraiaDaCostaRouteImport } from './routes/praia-da-costa'
+import { Route as ItaparicaRouteImport } from './routes/itaparica'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PraiaDaCostaRoute = PraiaDaCostaRouteImport.update({
+  id: '/praia-da-costa',
+  path: '/praia-da-costa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ItaparicaRoute = ItaparicaRouteImport.update({
+  id: '/itaparica',
+  path: '/itaparica',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +31,50 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/itaparica': typeof ItaparicaRoute
+  '/praia-da-costa': typeof PraiaDaCostaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/itaparica': typeof ItaparicaRoute
+  '/praia-da-costa': typeof PraiaDaCostaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/itaparica': typeof ItaparicaRoute
+  '/praia-da-costa': typeof PraiaDaCostaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/itaparica' | '/praia-da-costa'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/itaparica' | '/praia-da-costa'
+  id: '__root__' | '/' | '/itaparica' | '/praia-da-costa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ItaparicaRoute: typeof ItaparicaRoute
+  PraiaDaCostaRoute: typeof PraiaDaCostaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/praia-da-costa': {
+      id: '/praia-da-costa'
+      path: '/praia-da-costa'
+      fullPath: '/praia-da-costa'
+      preLoaderRoute: typeof PraiaDaCostaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/itaparica': {
+      id: '/itaparica'
+      path: '/itaparica'
+      fullPath: '/itaparica'
+      preLoaderRoute: typeof ItaparicaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +87,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ItaparicaRoute: ItaparicaRoute,
+  PraiaDaCostaRoute: PraiaDaCostaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

@@ -57,7 +57,7 @@ export function Houses() {
                       {active ? "Unidade selecionada" : "Selecionar esta unidade"}
                     </Button>
                     <Button asChild variant="ghost" className="rounded-full text-foreground hover:text-caramel">
-                      <Link to={`/${h.slug}` as "/itaparica" | "/praia-da-costa"}>
+                      <Link to={h.slug === "itaparica" ? "/itaparica" : "/praia-da-costa"}>
                         Conhecer <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>

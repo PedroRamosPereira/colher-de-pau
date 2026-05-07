@@ -1,26 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, PawPrint, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
-
-const houses = [
-  {
-    name: "Unidade Praia de Itaparica",
-    address: "Rua Ibitirama, 253, Praia de Itaparica",
-    city: "Vila Velha, ES · CEP 29102-130",
-    tag: "A casa mãe",
-    to: "/itaparica" as const,
-  },
-  {
-    name: "Unidade Praia da Costa",
-    address: "Rua Rio Branco, 97, Praia da Costa",
-    city: "Vila Velha, ES · CEP 29101-130",
-    tag: "Nossa irmã à beira-mar",
-    to: "/praia-da-costa" as const,
-  },
-];
+import { useUnit } from "@/context/UnitContext";
+import { units } from "@/data/units";
 
 export function Houses() {
+  const { unit, setUnitSlug } = useUnit();
   return (
     <section id="casas" className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -29,34 +15,57 @@ export function Houses() {
             <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">Nossas Casas</p>
             <h2 className="font-serif text-4xl md:text-5xl">Duas moradas, a mesma alma.</h2>
             <p className="mt-5 text-muted-foreground text-lg">
-              Escolha o cantinho mais próximo de você. Nós cuidamos do resto.
+              Cada casa tem seu próprio cardápio, horário e iFood. Selecione abaixo a unidade que você quer visitar.
             </p>
           </div>
         </Reveal>
 
         <div className="mt-14 grid md:grid-cols-2 gap-8">
-          {houses.map((h, i) => (
-            <Reveal key={h.name} delay={0.1 * i}>
-              <div className="rounded-3xl border border-border bg-card p-8 lg:p-10 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <p className="text-xs uppercase tracking-[0.25em] text-caramel">{h.tag}</p>
-                <h3 className="mt-3 font-serif text-3xl">{h.name}</h3>
-                <div className="mt-6 flex items-start gap-3 text-foreground/80">
-                  <MapPin className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
-                  <div>
-                    <p>{h.address}</p>
-                    <p className="text-sm text-muted-foreground">{h.city}</p>
+          {units.map((h, i) => {
+            const active = unit.slug === h.slug;
+            return (
+              <Reveal key={h.slug} delay={0.1 * i}>
+                <div className={`rounded-3xl border bg-card p-8 lg:p-10 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${active ? "border-caramel ring-1 ring-caramel/40" : "border-border"}`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="text-xs uppercase tracking-[0.25em] text-caramel">{h.tag}</p>
+                    {h.petFriendly && (
+                      <span className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-caramel border border-caramel/30 rounded-full px-2 py-1">
+                        <PawPrint className="h-3 w-3" /> Pet friendly
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-3 font-serif text-3xl">{h.name}</h3>
+                  <div className="mt-6 space-y-3 text-foreground/80">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
+                      <div>
+                        <p>{h.address}</p>
+                        <p className="text-sm text-muted-foreground">{h.city}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Clock className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
+                      <p className="text-sm">{h.hours}</p>
+                    </div>
+                  </div>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <Button
+                      onClick={() => setUnitSlug(h.slug)}
+                      variant={active ? "default" : "outline"}
+                      className={`rounded-full ${active ? "bg-caramel text-primary-foreground hover:bg-bistro" : "border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground"}`}
+                    >
+                      {active ? "Unidade selecionada" : "Selecionar esta unidade"}
+                    </Button>
+                    <Button asChild variant="ghost" className="rounded-full text-foreground hover:text-caramel">
+                      <Link to={`/${h.slug}` as "/itaparica" | "/praia-da-costa"}>
+                        Conhecer <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
-                <div className="mt-8">
-                  <Button asChild className="rounded-full bg-caramel hover:bg-bistro text-primary-foreground">
-                    <Link to={h.to}>
-                      Conhecer esta casa <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

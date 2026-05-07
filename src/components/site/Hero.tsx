@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero.jpg";
+import logo from "@/assets/logo.png";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PawPrint } from "lucide-react";
+import { useUnit } from "@/context/UnitContext";
 
 export function Hero() {
+  const { unit } = useUnit();
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-12 pb-24 lg:pt-20 lg:pb-32 grid lg:grid-cols-12 gap-10 items-center">
@@ -14,7 +17,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="uppercase text-xs tracking-[0.3em] text-caramel mb-6"
           >
-            Cafeteria & Bistrô · desde 2017
+            Cafeteria & Bistrô · desde 2017 · {unit.shortName}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -43,11 +46,13 @@ export function Hero() {
               <a href="#recomendacoes">Recomendações do dia <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-7 border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground transition-all duration-300">
-              <a href="/cardapio.pdf" target="_blank" rel="noopener">Cardápio em PDF</a>
+              <a href={unit.cardapioPdf} target="_blank" rel="noopener">Cardápio em PDF</a>
             </Button>
-            <Button asChild size="lg" className="rounded-full h-12 px-7 bg-[#EA1D2C] text-white hover:bg-[#c8121f] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
-              <a href="https://www.ifood.com.br/delivery/vila-velha-es/colher-de-pau" target="_blank" rel="noopener">Pedir no iFood</a>
-            </Button>
+            {unit.ifood && (
+              <Button asChild size="lg" className="rounded-full h-12 px-7 bg-[#EA1D2C] text-white hover:bg-[#c8121f] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+                <a href={unit.ifood} target="_blank" rel="noopener">Pedir no iFood</a>
+              </Button>
+            )}
           </motion.div>
         </div>
         <motion.div
@@ -57,16 +62,26 @@ export function Hero() {
           className="lg:col-span-6 relative"
         >
           <div className="relative arch-image aspect-[4/5] shadow-2xl">
-            <img src={heroImg} alt="Interior da Colher de Pau" className="h-full w-full object-cover" width={1600} height={1200} />
-            <div className="absolute inset-0 bg-gradient-to-t from-bistro/40 via-transparent to-transparent" />
+            <img src={heroImg} alt={`Interior da Colher de Pau · ${unit.shortName}`} className="h-full w-full object-cover" width={1600} height={1200} />
+            <div className="absolute inset-0 bg-gradient-to-t from-bistro/55 via-bistro/10 to-transparent" />
+            <img
+              src={logo}
+              alt=""
+              aria-hidden
+              className="absolute top-6 right-6 h-20 w-20 md:h-28 md:w-28 object-contain drop-shadow-2xl opacity-95"
+            />
           </div>
-          <div className="hidden lg:flex absolute -left-10 bottom-10 bg-background border border-border rounded-2xl px-5 py-4 shadow-xl items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-caramel/15 flex items-center justify-center font-serif text-caramel">★</div>
-            <div>
-              <p className="text-sm font-medium">Pet Friendly</p>
-              <p className="text-xs text-muted-foreground">Varandas acolhedoras</p>
+          {unit.petFriendly && (
+            <div className="hidden lg:flex absolute -left-10 bottom-10 bg-background border border-border rounded-2xl px-5 py-4 shadow-xl items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-caramel/15 flex items-center justify-center text-caramel">
+                <PawPrint className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-sm font-medium">Pet Friendly</p>
+                <p className="text-xs text-muted-foreground">Varandas acolhedoras</p>
+              </div>
             </div>
-          </div>
+          )}
         </motion.div>
       </div>
     </section>

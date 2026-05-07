@@ -1,27 +1,16 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, MessageCircle, Instagram, Clock, ArrowLeft, ExternalLink } from "lucide-react";
+import { MapPin, MessageCircle, Instagram, Clock, ArrowLeft, ExternalLink, PawPrint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { MenuSection } from "./Menu";
+import { Recommendations } from "./Recommendations";
 import heroImg from "@/assets/hero.jpg";
+import logo from "@/assets/logo.png";
+import type { Unit } from "@/data/units";
 
-export type UnitData = {
-  name: string;
-  tag: string;
-  address: string;
-  city: string;
-  hours: string;
-  whatsapp: string;
-  maps: string;
-  ifood?: string;
-  instagram: string;
-  highlights: { title: string; desc: string }[];
-  about: string;
-  image?: string;
-};
-
-export function UnitPage({ data }: { data: UnitData }) {
+export function UnitPage({ data }: { data: Unit }) {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -48,6 +37,10 @@ export function UnitPage({ data }: { data: UnitData }) {
                   <Clock className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
                   <p>{data.hours}</p>
                 </div>
+                <div className="flex items-start gap-3">
+                  <PawPrint className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
+                  <p>{data.petFriendly ? "Casa pet friendly, traga seu melhor amigo." : "Esta casa não recebe pets, ideal para grab & go."}</p>
+                </div>
               </div>
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -60,6 +53,9 @@ export function UnitPage({ data }: { data: UnitData }) {
                   <a href={data.maps} target="_blank" rel="noopener">
                     <MapPin className="h-4 w-4 mr-1" /> Rota no Maps
                   </a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground">
+                  <a href={data.cardapioPdf} target="_blank" rel="noopener">Cardápio em PDF</a>
                 </Button>
                 {data.ifood && (
                   <Button asChild className="rounded-full bg-[#EA1D2C] hover:bg-[#c8121f] text-white">
@@ -77,8 +73,10 @@ export function UnitPage({ data }: { data: UnitData }) {
             </div>
 
             <Reveal className="lg:col-span-6">
-              <div className="arch-image aspect-[4/5] shadow-2xl">
-                <img src={data.image || heroImg} alt={data.name} className="h-full w-full object-cover" />
+              <div className="relative arch-image aspect-[4/5] shadow-2xl">
+                <img src={heroImg} alt={data.name} className="h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bistro/55 via-bistro/10 to-transparent" />
+                <img src={logo} alt="" aria-hidden className="absolute top-6 right-6 h-24 w-24 object-contain drop-shadow-2xl" />
               </div>
             </Reveal>
           </div>
@@ -102,6 +100,9 @@ export function UnitPage({ data }: { data: UnitData }) {
             </div>
           </div>
         </section>
+
+        <Recommendations />
+        <MenuSection />
       </main>
       <Footer />
     </div>

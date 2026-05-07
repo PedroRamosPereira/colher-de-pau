@@ -43,20 +43,20 @@
 :root {
   --radius: 1rem;
   /* Warm cream background */
-  --background: oklch(0.97 0.015 80);
-  --foreground: oklch(0.25 0.025 40);
-  --cream: oklch(0.95 0.025 75);
-  --bistro: oklch(0.18 0.02 40);
-  --caramel: oklch(0.55 0.13 55);
-  --ink: oklch(0.22 0.02 40);
+  --background: oklch(0.96 0.018 78);
+  --foreground: oklch(0.22 0.03 50);
+  --cream: oklch(0.93 0.03 78);
+  --bistro: oklch(0.24 0.04 50);
+  --caramel: oklch(0.66 0.14 82);
+  --ink: oklch(0.2 0.03 50);
 
   --card: oklch(0.99 0.01 80);
   --card-foreground: oklch(0.25 0.025 40);
   --popover: oklch(0.99 0.01 80);
   --popover-foreground: oklch(0.25 0.025 40);
 
-  --primary: oklch(0.55 0.13 55);
-  --primary-foreground: oklch(0.98 0.01 80);
+  --primary: oklch(0.66 0.14 82);
+  --primary-foreground: oklch(0.2 0.03 50);
   --secondary: oklch(0.92 0.025 75);
   --secondary-foreground: oklch(0.25 0.025 40);
   --muted: oklch(0.93 0.018 75);
@@ -67,7 +67,7 @@
   --destructive-foreground: oklch(0.98 0.01 80);
   --border: oklch(0.88 0.02 70);
   --input: oklch(0.9 0.018 70);
-  --ring: oklch(0.55 0.13 55);
+  --ring: oklch(0.66 0.14 82);
 }
 
 .dark {

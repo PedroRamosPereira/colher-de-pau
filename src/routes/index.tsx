@@ -7,6 +7,7 @@ import { Recommendations } from "@/components/site/Recommendations";
 import { Houses } from "@/components/site/Houses";
 import { Orders } from "@/components/site/Orders";
 import { Footer } from "@/components/site/Footer";
+import { UnitProvider } from "@/context/UnitContext";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,17 +23,20 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        <Hero />
-        <Essence />
-        <Recommendations />
-        <MenuSection />
-        <Houses />
-        <Orders />
-      </main>
-      <Footer />
-    </div>
+    <UnitProvider>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <Hero />
+          <Essence />
+          <Houses />
+          <Recommendations />
+          <MenuSection />
+          <Orders />
+        </main>
+        <Footer />
+      </div>
+    </UnitProvider>
   );
 }
+

@@ -37,10 +37,12 @@ export function UnitPage({ data }: { data: Unit }) {
                   <Clock className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
                   <p>{data.hours}</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <PawPrint className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
-                  <p>{data.petFriendly ? "Casa pet friendly, traga seu melhor amigo." : "Esta casa não recebe pets, ideal para grab & go."}</p>
-                </div>
+                {data.petFriendly && (
+                  <div className="flex items-start gap-3">
+                    <PawPrint className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
+                    <p>Casa pet friendly, traga seu melhor amigo.</p>
+                  </div>
+                )}
               </div>
 
               <div className="mt-10 flex flex-wrap gap-3">

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import { useUnit } from "@/context/UnitContext";
 import { UnitSwitcher } from "./UnitSwitcher";
+import { UnitBanner } from "./UnitBanner";
 
 const links = [
   { href: "#essencia", label: "A Essência" },
@@ -18,6 +19,7 @@ export function Navbar() {
   const { unit } = useUnit();
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border/60">
+      <UnitBanner />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3 text-foreground shrink-0">
           <img src={logo} alt="Colher de Pau by Samira Norbim" className="h-12 w-12 object-contain" />

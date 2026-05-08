@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Reveal } from "./Reveal";
-import { Sparkles, PawPrint } from "lucide-react";
+import { PawPrint } from "lucide-react";
 import { useUnit } from "@/context/UnitContext";
 import type { MenuItem } from "@/data/units";
 

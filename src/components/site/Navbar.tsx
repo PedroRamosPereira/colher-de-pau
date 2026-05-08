@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import { useUnit } from "@/context/UnitContext";
 import { UnitSwitcher } from "./UnitSwitcher";
+import { UnitBanner } from "./UnitBanner";
 
 const links = [
   { href: "#essencia", label: "A Essência" },

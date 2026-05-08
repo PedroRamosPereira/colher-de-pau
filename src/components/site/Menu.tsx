@@ -60,15 +60,16 @@ export function MenuSection() {
           </Tabs>
         </Reveal>
 
-        <Reveal delay={0.2}>
-          <div className="mt-12 mx-auto max-w-2xl rounded-2xl border border-caramel/30 bg-background px-6 py-5 flex items-center gap-4 shadow-sm">
-            {unit.petFriendly ? <PawPrint className="h-5 w-5 text-caramel shrink-0" /> : <Sparkles className="h-5 w-5 text-caramel shrink-0" />}
-            <p className="text-sm text-foreground/80">
-              <span className="font-medium">{unit.shortName}</span> ·{" "}
-              {unit.petFriendly ? "esta casa é pet friendly, traga seu melhor amigo." : "casa sem espaço pet, ideal para grab & go."}
-            </p>
-          </div>
-        </Reveal>
+        {unit.petFriendly && (
+          <Reveal delay={0.2}>
+            <div className="mt-12 mx-auto max-w-2xl rounded-2xl border border-caramel/30 bg-background px-6 py-5 flex items-center gap-4 shadow-sm">
+              <PawPrint className="h-5 w-5 text-caramel shrink-0" />
+              <p className="text-sm text-foreground/80">
+                <span className="font-medium">{unit.shortName}</span> é uma casa pet friendly, traga seu melhor amigo.
+              </p>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

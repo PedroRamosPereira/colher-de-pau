@@ -45,9 +45,9 @@
   /* Warm cream background */
   --background: oklch(0.96 0.018 78);
   --foreground: oklch(0.22 0.03 50);
-  --cream: oklch(0.93 0.03 78);
+  --cream: oklch(0.96 0.02 80);
   --bistro: oklch(0.24 0.04 50);
-  --caramel: oklch(0.66 0.14 82);
+  --caramel: oklch(0.55 0.15 70);
   --ink: oklch(0.2 0.03 50);
 
   --card: oklch(0.99 0.01 80);
@@ -55,8 +55,8 @@
   --popover: oklch(0.99 0.01 80);
   --popover-foreground: oklch(0.25 0.025 40);
 
-  --primary: oklch(0.66 0.14 82);
-  --primary-foreground: oklch(0.2 0.03 50);
+  --primary: oklch(0.55 0.15 70);
+  --primary-foreground: oklch(0.98 0.01 85);
   --secondary: oklch(0.92 0.025 75);
   --secondary-foreground: oklch(0.25 0.025 40);
   --muted: oklch(0.93 0.018 75);

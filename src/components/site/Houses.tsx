@@ -2,11 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { MapPin, ArrowRight, PawPrint, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
-import { useUnit } from "@/context/UnitContext";
 import { units } from "@/data/units";
+import { brandUnitRoutes } from "@/data/brand";
 
 export function Houses() {
-  const { unit, setUnitSlug } = useUnit();
   return (
     <section id="casas" className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -15,17 +14,17 @@ export function Houses() {
             <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">Nossas Casas</p>
             <h2 className="font-serif text-4xl md:text-5xl">Duas moradas, a mesma alma.</h2>
             <p className="mt-5 text-muted-foreground text-lg">
-              Cada casa tem seu próprio cardápio, horário e iFood. Selecione abaixo a unidade que você quer visitar.
+              Cada casa tem seu próprio cardápio, horário e iFood. Escolha uma unidade para conhecer
+              detalhes, rota e sugestões antes da visita.
             </p>
           </div>
         </Reveal>
 
         <div className="mt-14 grid md:grid-cols-2 gap-8">
           {units.map((h, i) => {
-            const active = unit.slug === h.slug;
             return (
               <Reveal key={h.slug} delay={0.1 * i}>
-                <div className={`rounded-3xl border bg-card p-8 lg:p-10 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${active ? "border-caramel ring-1 ring-caramel/40" : "border-border"}`}>
+                <div className="rounded-3xl border border-border bg-card p-8 lg:p-10 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <div className="flex items-start justify-between gap-4">
                     <p className="text-xs uppercase tracking-[0.25em] text-caramel">{h.tag}</p>
                     {h.petFriendly && (
@@ -50,16 +49,21 @@ export function Houses() {
                   </div>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <Button
-                      onClick={() => setUnitSlug(h.slug)}
-                      variant={active ? "default" : "outline"}
-                      className={`rounded-full ${active ? "bg-caramel text-primary-foreground hover:bg-bistro" : "border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground"}`}
+                      asChild
+                      className="rounded-full bg-caramel text-primary-foreground hover:bg-bistro"
                     >
-                      {active ? "Unidade selecionada" : "Selecionar esta unidade"}
-                    </Button>
-                    <Button asChild variant="ghost" className="rounded-full text-foreground hover:text-caramel">
-                      <Link to={h.slug === "itaparica" ? "/itaparica" : "/praia-da-costa"}>
+                      <Link to={brandUnitRoutes[h.slug]}>
                         Conhecer <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
+                    </Button>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="rounded-full border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground"
+                    >
+                      <a href={h.maps} target="_blank" rel="noopener">
+                        Como chegar
+                      </a>
                     </Button>
                   </div>
                 </div>

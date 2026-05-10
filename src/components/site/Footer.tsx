@@ -6,7 +6,11 @@ export function Footer() {
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 text-center">
         <a href="#top" className="inline-flex flex-col items-center gap-3">
-          <img src={logo} alt="Colher de Pau by Samira Norbim" className="h-24 w-24 object-contain" />
+          <img
+            src={logo}
+            alt="Colher de Pau by Samira Norbim"
+            className="h-24 w-24 object-contain"
+          />
           <span className="font-serif text-3xl">
             Colher <span className="italic text-caramel">de</span> Pau
           </span>
@@ -26,7 +30,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/60 text-xs text-muted-foreground space-y-2">
-          <p>© 2017 Colher de Pau by Samira Norbim. Todos os direitos de criação e imagem intelectual reservados.</p>
+          <p>
+            © 2017 Colher de Pau by Samira Norbim. Todos os direitos de criação e imagem intelectual
+            reservados.
+          </p>
           <p>COLHER DE PAU CAFETERIA & BISTRO LTDA · CNPJ matriz 30.611.225/0001-45</p>
         </div>
       </div>

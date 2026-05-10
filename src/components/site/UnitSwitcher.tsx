@@ -1,6 +1,8 @@
 import { useUnit } from "@/context/UnitContext";
 import { MapPin } from "lucide-react";
 import { useNavigate, useRouter } from "@tanstack/react-router";
+import { brandUnitRoutes } from "@/data/brand";
+import { getUnitSwitchTarget } from "./unitSwitcherRoute.js";
 
 export function UnitSwitcher({ className = "" }: { className?: string }) {
   const { unit, setUnitSlug, units } = useUnit();
@@ -8,18 +10,23 @@ export function UnitSwitcher({ className = "" }: { className?: string }) {
   const router = useRouter();
   const handleChange = (slug: typeof unit.slug) => {
     setUnitSlug(slug);
-    const onHome = router.state.location.pathname === "/";
-    if (!onHome) {
-      navigate({ to: "/" });
+    const targetRoute = getUnitSwitchTarget(router.state.location.pathname, brandUnitRoutes[slug]);
+    if (targetRoute) {
+      navigate({ to: targetRoute });
     }
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
   return (
-    <div className={`inline-flex items-center gap-2 rounded-full border border-border bg-background/80 backdrop-blur-sm px-3 py-1.5 ${className}`}>
+    <div
+      className={`inline-flex items-center gap-2 rounded-full border border-border bg-background/80 backdrop-blur-sm px-3 py-1.5 ${className}`}
+    >
       <MapPin className="h-3.5 w-3.5 text-caramel" aria-hidden />
-      <label htmlFor="unit-switch" className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+      <label
+        htmlFor="unit-switch"
+        className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
+      >
         Unidade
       </label>
       <select
@@ -29,7 +36,9 @@ export function UnitSwitcher({ className = "" }: { className?: string }) {
         className="bg-transparent text-sm font-medium text-foreground focus:outline-none cursor-pointer"
       >
         {units.map((u) => (
-          <option key={u.slug} value={u.slug}>{u.shortName}</option>
+          <option key={u.slug} value={u.slug}>
+            {u.shortName}
+          </option>
         ))}
       </select>
     </div>

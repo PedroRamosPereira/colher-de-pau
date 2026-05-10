@@ -30,7 +30,10 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Colher de Pau · Cafeteria & Bistrô" },
-      { name: "description", content: "Cafeteria, confeitaria e bistrô em Vila Velha, ES. Desde 2017." },
+      {
+        name: "description",
+        content: "Cafeteria, confeitaria e bistrô em Vila Velha, ES. Desde 2017.",
+      },
       { property: "og:title", content: "Colher de Pau · Cafeteria & Bistrô" },
       { property: "og:description", content: "Cafeteria, confeitaria e bistrô em Vila Velha, ES." },
       { property: "og:type", content: "website" },
@@ -49,7 +52,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

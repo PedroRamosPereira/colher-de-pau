@@ -10,7 +10,13 @@ type Ctx = {
 const UnitContext = createContext<Ctx | null>(null);
 const STORAGE_KEY = "cdp.unit";
 
-export function UnitProvider({ children, defaultSlug }: { children: ReactNode; defaultSlug?: Unit["slug"] }) {
+export function UnitProvider({
+  children,
+  defaultSlug,
+}: {
+  children: ReactNode;
+  defaultSlug?: Unit["slug"];
+}) {
   const [slug, setSlug] = useState<Unit["slug"]>(defaultSlug ?? "itaparica");
 
   useEffect(() => {
@@ -36,4 +42,8 @@ export function useUnit() {
   const ctx = useContext(UnitContext);
   if (!ctx) throw new Error("useUnit must be inside UnitProvider");
   return ctx;
+}
+
+export function useOptionalUnit() {
+  return useContext(UnitContext);
 }

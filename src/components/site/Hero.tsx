@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero.jpg";
 import logo from "@/assets/logo.png";
 import { motion } from "framer-motion";
-import { ArrowRight, PawPrint } from "lucide-react";
-import { useUnit } from "@/context/UnitContext";
+import { ArrowDown, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { generalOrdersHref } from "@/data/brand";
 
 export function Hero() {
-  const { unit } = useUnit();
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-12 pb-24 lg:pt-20 lg:pb-32 grid lg:grid-cols-12 gap-10 items-center">
@@ -17,7 +16,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="uppercase text-xs tracking-[0.3em] text-caramel mb-6"
           >
-            Cafeteria & Bistrô · desde 2017 · {unit.shortName}
+            Cafeteria & Bistrô · desde 2017 · Vila Velha
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -25,7 +24,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground"
           >
-            Uma pausa para o <em className="text-caramel">afeto</em> e o verdadeiro sabor.
+            Um cantinho de <em className="text-caramel">afeto</em> para viver com calma.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -33,26 +32,40 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            Desde 2017 proporcionando experiências gastronômicas singulares. O conforto
-            inigualável de um legítimo cantinho de Paris aguardando por você em Vila Velha.
+            Desde 2017 proporcionando experiências gastronômicas singulares. O conforto inigualável
+            de um legítimo cantinho de Paris aguardando por você em nossas casas em Vila Velha.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-10 max-w-2xl"
           >
-            <Button asChild size="lg" className="rounded-full bg-caramel text-primary-foreground hover:bg-bistro h-12 px-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
-              <a href="#recomendacoes">Recomendações do dia <ArrowRight className="ml-1 h-4 w-4" /></a>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-7 border-caramel/40 text-caramel hover:bg-caramel hover:text-primary-foreground transition-all duration-300">
-              <a href={unit.cardapioPdf} target="_blank" rel="noopener">Cardápio em PDF</a>
-            </Button>
-            {unit.ifood && (
-              <Button asChild size="lg" className="rounded-full h-12 px-7 bg-[#EA1D2C] text-white hover:bg-[#c8121f] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
-                <a href={unit.ifood} target="_blank" rel="noopener">Pedir no iFood</a>
+            <p className="mb-5 max-w-xl text-sm leading-7 text-foreground/75 sm:text-base">
+              Conheça a casa que combina com o seu momento ou fale com a gente para encomendas,
+              cestas e celebrações especiais.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 rounded-full bg-caramel px-6 text-primary-foreground hover:bg-bistro"
+              >
+                <a href="#casas">
+                  Conheça nossas unidades <ArrowDown className="h-4 w-4" />
+                </a>
               </Button>
-            )}
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 rounded-full border-caramel/40 px-6 text-caramel hover:bg-caramel hover:text-primary-foreground"
+              >
+                <a href={generalOrdersHref}>
+                  <MessageCircle className="h-4 w-4" /> Fazer encomenda
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
         <motion.div
@@ -62,7 +75,13 @@ export function Hero() {
           className="lg:col-span-6 relative"
         >
           <div className="relative arch-image aspect-[4/5] shadow-2xl">
-            <img src={heroImg} alt={`Interior da Colher de Pau · ${unit.shortName}`} className="h-full w-full object-cover" width={1600} height={1200} />
+            <img
+              src={heroImg}
+              alt="Interior acolhedor da Colher de Pau"
+              className="h-full w-full object-cover"
+              width={1600}
+              height={1200}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-bistro/55 via-bistro/10 to-transparent" />
             <img
               src={logo}
@@ -71,17 +90,6 @@ export function Hero() {
               className="absolute top-6 right-6 h-20 w-20 md:h-28 md:w-28 object-contain drop-shadow-2xl opacity-95"
             />
           </div>
-          {unit.petFriendly && (
-            <div className="hidden lg:flex absolute -left-10 bottom-10 bg-background border border-border rounded-2xl px-5 py-4 shadow-xl items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-caramel/15 flex items-center justify-center text-caramel">
-                <PawPrint className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-medium">Pet Friendly</p>
-                <p className="text-xs text-muted-foreground">Varandas acolhedoras</p>
-              </div>
-            </div>
-          )}
         </motion.div>
       </div>
     </section>

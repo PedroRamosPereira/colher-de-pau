@@ -3,9 +3,21 @@ import { PawPrint, Coffee, Moon, Info } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const rituals = [
-  { icon: Coffee, title: "Café da Rainha", text: "Uma manhã generosa, servida com docinhos da casa, frutas frescas e o pão do dia." },
-  { icon: Moon, title: "After Coffee", text: "Quando a tarde se inclina, a casa muda de tom: luz baixa, taças e pratos compartilháveis." },
-  { icon: PawPrint, title: "Pet Friendly", text: "Suas varandas recebem com carinho a sua companhia de quatro patas." },
+  {
+    icon: Coffee,
+    title: "Café da Rainha",
+    text: "Uma manhã generosa, servida com docinhos da casa, frutas frescas e o pão do dia.",
+  },
+  {
+    icon: Moon,
+    title: "After Coffee",
+    text: "Quando a tarde se inclina, a casa muda de tom: luz baixa, taças e pratos compartilháveis.",
+  },
+  {
+    icon: PawPrint,
+    title: "Pet Friendly",
+    text: "Suas varandas recebem com carinho a sua companhia de quatro patas.",
+  },
 ];
 
 export function Essence() {
@@ -14,7 +26,14 @@ export function Essence() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
         <Reveal className="lg:col-span-5 lg:col-start-1 order-2 lg:order-1">
           <div className="arch-image aspect-[3/4] shadow-xl">
-            <img src={essenceImg} alt="Cantinho da Colher de Pau" className="h-full w-full object-cover" loading="lazy" width={1000} height={1400} />
+            <img
+              src={essenceImg}
+              alt="Cantinho da Colher de Pau"
+              className="h-full w-full object-cover"
+              loading="lazy"
+              width={1000}
+              height={1400}
+            />
           </div>
         </Reveal>
         <div className="lg:col-span-7 order-1 lg:order-2">
@@ -24,9 +43,9 @@ export function Essence() {
               Afeto, cuidado e acolhimento. <em className="text-caramel">Eis o nosso ofício.</em>
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
-              Fundada em 2017 por Samira Norbim, a Colher de Pau nasceu para ser um refúgio.
-              Um cantinho de Paris em Vila Velha onde o tempo se demora, o pão de fermentação
-              natural perfuma o ar e cada gesto é desenhado para você desacelerar.
+              Fundada em 2017 por Samira Norbim, a Colher de Pau nasceu para ser um refúgio. Um
+              cantinho de Paris em Vila Velha onde o tempo se demora, o pão de fermentação natural
+              perfuma o ar e cada gesto é desenhado para você desacelerar.
             </p>
           </Reveal>
 
@@ -46,9 +65,9 @@ export function Essence() {
             <div className="mt-10 flex gap-4 rounded-2xl bg-accent/60 border border-border p-5">
               <Info className="h-5 w-5 text-caramel shrink-0 mt-0.5" />
               <p className="text-sm text-foreground/80 leading-relaxed">
-                <span className="font-medium">Um lembrete delicado:</span> tudo é preparado de forma artesanal.
-                Em finais de semana movimentados, alguns pratos pedem o tempo que a alta qualidade exige.
-                Aproveite para <em>desacelerar</em>. Vale cada minuto.
+                <span className="font-medium">Um lembrete delicado:</span> tudo é preparado de forma
+                artesanal. Em finais de semana movimentados, alguns pratos pedem o tempo que a alta
+                qualidade exige. Aproveite para <em>desacelerar</em>. Vale cada minuto.
               </p>
             </div>
           </Reveal>

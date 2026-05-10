@@ -31,6 +31,7 @@ export function Essence() {
               alt="Cantinho da Colher de Pau"
               className="h-full w-full object-cover"
               loading="lazy"
+              decoding="async"
               width={1000}
               height={1400}
             />

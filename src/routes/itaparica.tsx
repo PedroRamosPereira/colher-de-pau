@@ -17,6 +17,10 @@ export const Route = createFileRoute("/itaparica")({
         content:
           "Pão de fermentação natural, cafés especiais e confeitaria artesanal na Praia de Itaparica.",
       },
+      { property: "og:image", content: "/og-itaparica.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: () => (

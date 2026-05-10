@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { WhatsAppFAB } from "@/components/WhatsAppFAB";
 
 import appCss from "../styles.css?url";
 
@@ -65,5 +66,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <div className="overflow-x-hidden">
+      <Outlet />
+      <WhatsAppFAB />
+    </div>
+  );
 }

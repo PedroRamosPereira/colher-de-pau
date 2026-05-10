@@ -10,6 +10,8 @@ export function Footer() {
             src={logo}
             alt="Colher de Pau by Samira Norbim"
             className="h-24 w-24 object-contain"
+            loading="lazy"
+            decoding="async"
           />
           <span className="font-serif text-3xl">
             Colher <span className="italic text-caramel">de</span> Pau

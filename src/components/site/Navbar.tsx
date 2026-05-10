@@ -24,7 +24,7 @@ export function Navbar() {
   const links = pathname === "/" ? homeLinks : unitLinks;
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border/60">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md [webkit-backdrop-filter:blur(12px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3 text-foreground shrink-0">
           <img
@@ -49,13 +49,17 @@ export function Navbar() {
         </nav>
         <div className="hidden md:flex items-center gap-3">{unitContext && <UnitSwitcher />}</div>
         <div className="flex items-center gap-2 md:hidden">
-          <button onClick={() => setOpen(!open)} className="p-2 text-foreground" aria-label="Menu">
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center p-2 text-foreground"
+            aria-label="Menu"
+          >
             {open ? <X /> : <Menu />}
           </button>
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+        <div className="border-t border-border bg-background/95 backdrop-blur-md [webkit-backdrop-filter:blur(12px)] md:hidden">
           <div className="px-6 py-6 flex flex-col gap-4">
             {unitContext && <UnitSwitcher />}
             {links.map((l) => (

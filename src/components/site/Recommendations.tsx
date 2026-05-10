@@ -50,6 +50,7 @@ export function Recommendations() {
                     src={highlight.image}
                     alt={highlight.name}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -96,6 +97,7 @@ export function Recommendations() {
                         src={item.image}
                         alt={item.name}
                         loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover"
                       />
                     </div>

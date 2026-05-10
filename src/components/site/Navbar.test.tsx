@@ -29,4 +29,22 @@ describe("Navbar", () => {
     expect(screen.queryByRole("link", { name: "Cardápio da casa" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Cardápio" })).not.toBeInTheDocument();
   });
+
+  it("keeps the mobile menu button at a 44x44 minimum touch target", () => {
+    render(
+      <UnitProvider defaultSlug="itaparica">
+        <Navbar />
+      </UnitProvider>,
+    );
+
+    const menuButton = screen.getAllByRole("button", { name: "Menu" })[0];
+
+    expect(menuButton).toHaveClass(
+      "min-w-[44px]",
+      "min-h-[44px]",
+      "flex",
+      "items-center",
+      "justify-center",
+    );
+  });
 });

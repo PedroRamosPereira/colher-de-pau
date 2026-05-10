@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Arquivo padrao para permitir a indexacao do site.
+Sitemap: https://colher-de-pau.vercel.app/sitemap.xml

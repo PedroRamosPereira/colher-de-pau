@@ -16,6 +16,10 @@ export const Route = createFileRoute("/praia-da-costa")({
         property: "og:description",
         content: "Cafés rápidos, doces para levar e encomendas a poucos passos da orla.",
       },
+      { property: "og:image", content: "/og-praia-da-costa.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: () => (

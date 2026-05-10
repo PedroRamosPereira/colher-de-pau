@@ -12,6 +12,7 @@ function Card({ item }: { item: MenuItem }) {
           src={item.image}
           alt={item.name}
           loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
@@ -53,7 +54,7 @@ export function MenuSection() {
 
         <Reveal delay={0.1}>
           <Tabs defaultValue="confeitaria" className="mt-14">
-            <div className="flex justify-center overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex justify-center overflow-x-auto whitespace-nowrap pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <TabsList className="mx-auto inline-flex min-w-max rounded-full bg-background border border-border p-1.5 h-auto">
                 <TabsTrigger
                   value="confeitaria"

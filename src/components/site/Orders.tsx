@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -10,16 +11,40 @@ import {
 } from "@/components/ui/select";
 import { MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { generalOrdersHref, hasGeneralOrdersWhatsapp } from "@/data/brand";
 
 type OrdersProps = {
   unitName?: string;
   whatsappHref?: string;
 };
 
-export function Orders({ unitName, whatsappHref }: OrdersProps) {
-  const orderHref = whatsappHref ?? generalOrdersHref;
-  const hasOrderWhatsapp = Boolean(whatsappHref) || hasGeneralOrdersWhatsapp;
+export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [product, setProduct] = useState("");
+  const [date, setDate] = useState("");
+
+  const productLabels: Record<string, string> = {
+    bolo: "Bolo inteiro",
+    cesta: "Cesta de café da manhã",
+    evento: "Coffee break / evento",
+    outro: "Outro",
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const phoneNumber = "5527981890666";
+    const selectedProduct = productLabels[product] ?? product;
+    const message = encodeURIComponent(
+      `Olá! Gostaria de fazer uma encomenda:\n\n` +
+        `Nome: ${name}\n` +
+        `Celular: ${phone}\n` +
+        `Produto: ${selectedProduct}\n` +
+        `Data desejada: ${date}`,
+    );
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
 
   return (
     <section
@@ -51,29 +76,44 @@ export function Orders({ unitName, whatsappHref }: OrdersProps) {
 
         <Reveal delay={0.15}>
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="rounded-3xl bg-cream/5 backdrop-blur-md border border-cream/15 p-8 space-y-5"
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="space-y-2">
-                <Label className="text-cream/80">Nome</Label>
+                <Label htmlFor="order-name" className="text-cream/80">
+                  Nome
+                </Label>
                 <Input
+                  id="order-name"
                   className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/40 rounded-xl h-11"
                   placeholder="Seu nome"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="space-y-2">
-                <Label className="text-cream/80">Celular</Label>
+                <Label htmlFor="order-phone" className="text-cream/80">
+                  Celular
+                </Label>
                 <Input
+                  id="order-phone"
                   className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/40 rounded-xl h-11"
                   placeholder="(27) 9..."
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <Label className="text-cream/80">Natureza da encomenda</Label>
-              <Select>
-                <SelectTrigger className="bg-cream/10 border-cream/20 text-cream rounded-xl h-11">
+              <Label id="order-type-label" className="text-cream/80">
+                Natureza da encomenda
+              </Label>
+              <Select value={product} onValueChange={setProduct}>
+                <SelectTrigger
+                  aria-labelledby="order-type-label"
+                  className="bg-cream/10 border-cream/20 text-cream rounded-xl h-11"
+                >
                   <SelectValue placeholder="Selecione uma opção" />
                 </SelectTrigger>
                 <SelectContent>
@@ -85,35 +125,23 @@ export function Orders({ unitName, whatsappHref }: OrdersProps) {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label className="text-cream/80">Data prevista</Label>
+              <Label htmlFor="order-date" className="text-cream/80">
+                Data prevista
+              </Label>
               <Input
+                id="order-date"
                 type="date"
                 className="bg-cream/10 border-cream/20 text-cream rounded-xl h-11"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
               />
             </div>
-            {hasOrderWhatsapp ? (
-              <Button
-                asChild
-                className="w-full rounded-full bg-caramel hover:bg-caramel/90 text-primary-foreground h-12 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-              >
-                <a href={orderHref} target="_blank" rel="noopener">
-                  <MessageCircle className="h-4 w-4 mr-1" /> Solicitar Orçamento Ágil via WhatsApp
-                </a>
-              </Button>
-            ) : (
-              <Button
-                type="button"
-                disabled
-                className="w-full rounded-full bg-caramel text-primary-foreground h-12 opacity-80"
-              >
-                <MessageCircle className="h-4 w-4 mr-1" /> WhatsApp geral em confirmação
-              </Button>
-            )}
-            {!hasOrderWhatsapp && (
-              <p className="text-center text-xs leading-relaxed text-cream/60">
-                O link único de encomendas está documentado como placeholder para o próximo ajuste.
-              </p>
-            )}
+            <Button
+              type="submit"
+              className="w-full rounded-full bg-caramel hover:bg-caramel/90 text-primary-foreground h-12 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+            >
+              <MessageCircle className="h-4 w-4 mr-1" /> Solicitar Orçamento Ágil via WhatsApp
+            </Button>
           </form>
         </Reveal>
       </div>

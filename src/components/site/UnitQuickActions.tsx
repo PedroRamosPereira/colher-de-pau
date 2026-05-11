@@ -11,7 +11,7 @@ export function UnitQuickActions({ unit, mode = "full" }: UnitQuickActionsProps)
   const isMenuOnly = mode === "menu-only";
 
   return (
-    <div className="rounded-[2rem] border border-caramel/15 bg-background/85 p-5 shadow-xl shadow-bistro/5 backdrop-blur-sm sm:p-6">
+    <div className="rounded-[1.5rem] border border-caramel/15 bg-background/85 p-4 shadow-xl shadow-bistro/5 backdrop-blur-sm sm:rounded-[2rem] sm:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Button
           asChild
@@ -70,6 +70,12 @@ export function UnitQuickActions({ unit, mode = "full" }: UnitQuickActionsProps)
           </Button>
         )}
       </div>
+      {isMenuOnly && (
+        <p className="mt-3 border-t border-caramel/15 pt-3 text-xs leading-5 text-muted-foreground sm:text-sm">
+          Veja o cardápio da unidade, confira as sugestões da casa e escolha com calma antes da
+          visita.
+        </p>
+      )}
     </div>
   );
 }

@@ -19,19 +19,25 @@ export function UnitPage() {
       <Navbar />
       <main>
         <section id="top" className="relative">
-          <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-12 pb-20 lg:pt-20 grid lg:grid-cols-12 gap-10 items-center">
+          <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 pb-12 pt-6 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-20 lg:pt-20">
             <div className="lg:col-span-6">
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 text-sm text-caramel hover:underline mb-6"
+                className="mb-4 inline-flex items-center gap-2 text-sm text-caramel hover:underline sm:mb-6"
               >
                 <ArrowLeft className="h-4 w-4" /> Voltar para a página inicial
               </Link>
-              <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">{unit.tag}</p>
-              <h1 className="font-serif text-5xl md:text-6xl leading-[1.05]">{unit.name}</h1>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">{unit.about}</p>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-caramel sm:mb-5">
+                {unit.tag}
+              </p>
+              <h1 className="font-serif text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
+                {unit.name}
+              </h1>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
+                {unit.about}
+              </p>
 
-              <div className="mt-8 space-y-3 text-foreground/85">
+              <div className="mt-6 space-y-3 text-foreground/85 sm:mt-8">
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
                   <div>
@@ -51,11 +57,7 @@ export function UnitPage() {
                 )}
               </div>
 
-              <div className="mt-10">
-                <p className="mb-4 max-w-xl text-sm text-muted-foreground">
-                  Veja o cardápio da unidade, confira as sugestões da casa e escolha com calma antes
-                  da visita.
-                </p>
+              <div className="mt-7 sm:mt-10">
                 <UnitQuickActions unit={unit} mode="menu-only" />
               </div>
             </div>

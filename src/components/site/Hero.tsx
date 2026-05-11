@@ -8,13 +8,13 @@ import { generalOrdersHref } from "@/data/brand";
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-12 pb-24 lg:pt-20 lg:pb-32 grid lg:grid-cols-12 gap-10 items-center">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 pb-14 pt-8 sm:px-6 sm:pb-20 sm:pt-12 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32 lg:pt-20">
         <div className="lg:col-span-6 relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="uppercase text-xs tracking-[0.3em] text-caramel mb-6"
+            className="mb-4 text-xs uppercase tracking-[0.3em] text-caramel sm:mb-6"
           >
             Cafeteria e bistrô desde 2017, em Vila Velha
           </motion.p>
@@ -22,7 +22,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground"
+            className="font-serif text-4xl leading-[1.05] text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Um cantinho de <em className="text-caramel">afeto</em> para saborear sem pressa.
           </motion.h1>
@@ -30,7 +30,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed"
+            className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg"
           >
             Desde 2017, a Colher de Pau recebe você com cafés especiais, confeitaria artesanal e
             pratos de bistrô em duas casas de Vila Velha, com o charme de um cantinho de Paris.
@@ -39,9 +39,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 max-w-2xl"
+            className="mt-7 max-w-2xl sm:mt-10"
           >
-            <p className="mb-5 max-w-xl text-sm leading-7 text-foreground/75 sm:text-base">
+            <p className="mb-4 max-w-xl text-sm leading-6 text-foreground/75 sm:mb-5 sm:text-base sm:leading-7">
               Escolha a casa que combina com o seu momento ou fale com a gente para encomendas,
               cestas e celebrações.
             </p>

@@ -30,12 +30,10 @@ export function Recommendations() {
                 <Sparkles className="h-3.5 w-3.5" /> Recomendações de hoje · {dayName} ·{" "}
                 {unit.shortName}
               </p>
-              <h2 className="font-serif text-4xl md:text-5xl">
-                Continue passeando pela seleção de hoje.
-              </h2>
+              <h2 className="font-serif text-4xl md:text-5xl">Veja a seleção de hoje com calma.</h2>
               <p className="mt-5 text-muted-foreground text-lg">
-                Aqui estão as escolhas do dia com mais calma, para você explorar sabores, preços e
-                detalhes antes de abrir o cardápio completo da unidade {unit.shortName}.
+                Confira sabores, preços e detalhes das escolhas do dia antes de abrir o cardápio
+                completo da unidade {unit.shortName}.
               </p>
             </div>
           </div>
@@ -66,13 +64,12 @@ export function Recommendations() {
                       {highlight.tag} · {highlight.price}
                     </p>
                     <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                      {highlight.desc} Uma escolha pensada para quem quer começar pelo favorito da
-                      casa hoje.
+                      {highlight.desc} Uma sugestão para começar pelo favorito da casa hoje.
                     </p>
                   </div>
                   <p className="mt-6 rounded-2xl bg-caramel/10 px-4 py-3 text-sm leading-relaxed text-foreground/75">
-                    A seleção muda diariamente; o cardápio completo fica concentrado no bloco de
-                    ações e na seção de cardápio da unidade.
+                    A seleção muda a cada dia. Você encontra o cardápio completo no bloco de ações e
+                    na seção de cardápio da unidade.
                   </p>
                 </div>
               </div>
@@ -83,8 +80,7 @@ export function Recommendations() {
                 Clássicos para acompanhar
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Se a vontade pedir mais um mimo da vitrine, estes dois completam a mesa com o mesmo
-                clima da seleção de hoje.
+                Se você quiser mais um doce da vitrine, estas sugestões completam a mesa.
               </p>
               <div className="mt-6 space-y-4">
                 {classics.map((item) => (

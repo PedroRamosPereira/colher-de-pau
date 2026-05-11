@@ -12,10 +12,10 @@ export function Houses() {
         <Reveal>
           <div className="max-w-2xl">
             <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">Nossas Casas</p>
-            <h2 className="font-serif text-4xl md:text-5xl">Duas moradas, a mesma alma.</h2>
+            <h2 className="font-serif text-4xl md:text-5xl">Duas casas, o mesmo cuidado.</h2>
             <p className="mt-5 text-muted-foreground text-lg">
-              Cada casa tem seu próprio cardápio, horário e iFood. Escolha uma unidade para conhecer
-              detalhes, rota e sugestões antes da visita.
+              Cada casa tem cardápio, horário e iFood próprios. Escolha uma unidade para ver rota,
+              detalhes e sugestões antes da visita.
             </p>
           </div>
         </Reveal>
@@ -53,7 +53,7 @@ export function Houses() {
                       className="rounded-full bg-caramel text-primary-foreground hover:bg-bistro"
                     >
                       <Link to={brandUnitRoutes[h.slug]}>
-                        Conhecer <ArrowRight className="ml-1 h-4 w-4" />
+                        Ver a casa <ArrowRight className="ml-1 h-4 w-4" />
                       </Link>
                     </Button>
                     <Button

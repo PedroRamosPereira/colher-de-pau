@@ -45,9 +45,10 @@ export function MenuSection() {
             <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">
               Principais da casa · {unit.shortName}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl">Favoritos para cada hora do dia.</h2>
+            <h2 className="font-serif text-4xl md:text-5xl">Favoritos para cada momento do dia.</h2>
             <p className="mt-5 text-muted-foreground text-lg">
-              Uma seleção dos principais da unidade {unit.shortName}, da confeitaria ao café.
+              Veja alguns dos principais sabores da unidade {unit.shortName}, da confeitaria ao
+              café.
             </p>
           </div>
         </Reveal>
@@ -94,8 +95,8 @@ export function MenuSection() {
             <div className="mt-12 mx-auto max-w-2xl rounded-2xl border border-caramel/30 bg-background px-6 py-5 flex items-center gap-4 shadow-sm">
               <PawPrint className="h-5 w-5 text-caramel shrink-0" />
               <p className="text-sm text-foreground/80">
-                <span className="font-medium">{unit.shortName}</span> é uma casa pet friendly, traga
-                seu melhor amigo.
+                A casa de <span className="font-medium">{unit.shortName}</span> é pet friendly.
+                Traga seu melhor amigo.
               </p>
             </div>
           </Reveal>

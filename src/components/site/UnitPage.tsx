@@ -25,7 +25,7 @@ export function UnitPage() {
                 to="/"
                 className="inline-flex items-center gap-2 text-sm text-caramel hover:underline mb-6"
               >
-                <ArrowLeft className="h-4 w-4" /> Voltar à página inicial
+                <ArrowLeft className="h-4 w-4" /> Voltar para a página inicial
               </Link>
               <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">{unit.tag}</p>
               <h1 className="font-serif text-5xl md:text-6xl leading-[1.05]">{unit.name}</h1>
@@ -46,15 +46,15 @@ export function UnitPage() {
                 {unit.petFriendly && (
                   <div className="flex items-start gap-3">
                     <PawPrint className="h-5 w-5 text-caramel mt-0.5 shrink-0" />
-                    <p>Casa pet friendly, traga seu melhor amigo.</p>
+                    <p>Casa pet friendly: traga seu melhor amigo.</p>
                   </div>
                 )}
               </div>
 
               <div className="mt-10">
                 <p className="mb-4 max-w-xl text-sm text-muted-foreground">
-                  Comece pelo cardápio da unidade e siga para as sugestões da casa para escolher com
-                  calma antes da visita.
+                  Veja o cardápio da unidade, confira as sugestões da casa e escolha com calma antes
+                  da visita.
                 </p>
                 <UnitQuickActions unit={unit} mode="menu-only" />
               </div>
@@ -84,7 +84,7 @@ export function UnitPage() {
                 Destaques desta casa
               </p>
               <h2 className="font-serif text-4xl md:text-5xl">
-                O que essa unidade faz com excelência.
+                O que você encontra nesta unidade.
               </h2>
             </Reveal>
             <div className="mt-12 grid md:grid-cols-3 gap-6">

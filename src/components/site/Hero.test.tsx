@@ -11,7 +11,7 @@ describe("Hero", () => {
       </UnitProvider>,
     );
 
-    expect(screen.getByRole("link", { name: /Conheça nossas unidades/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Fazer encomenda/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Conhecer as casas/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Pedir encomenda/i })).toBeInTheDocument();
   });
 });

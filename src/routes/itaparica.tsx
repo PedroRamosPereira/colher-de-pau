@@ -5,17 +5,17 @@ import { UnitProvider } from "@/context/UnitContext";
 export const Route = createFileRoute("/itaparica")({
   head: () => ({
     meta: [
-      { title: "Colher de Pau Itaparica · Cafeteria & Bistrô em Vila Velha" },
+      { title: "Colher de Pau Itaparica · Cafeteria e Bistrô em Vila Velha" },
       {
         name: "description",
         content:
-          "A casa mãe da Colher de Pau na Praia de Itaparica. Café da Rainha, confeitaria autoral e After Coffee.",
+          "A casa mãe da Colher de Pau na Praia de Itaparica, com Café da Rainha, confeitaria autoral e After Coffee.",
       },
       { property: "og:title", content: "Colher de Pau Itaparica" },
       {
         property: "og:description",
         content:
-          "Pão de fermentação natural, cafés especiais e confeitaria artesanal na Praia de Itaparica.",
+          "Pães de fermentação natural, cafés especiais e confeitaria artesanal na Praia de Itaparica.",
       },
       { property: "og:image", content: "/og-itaparica.jpg" },
       { property: "og:image:width", content: "1200" },

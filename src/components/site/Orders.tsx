@@ -26,8 +26,8 @@ export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
   const productLabels: Record<string, string> = {
     bolo: "Bolo inteiro",
     cesta: "Cesta de café da manhã",
-    evento: "Coffee break / evento",
-    outro: "Outro",
+    evento: "Coffee break ou evento",
+    outro: "Outro pedido",
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -38,7 +38,7 @@ export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
     const message = encodeURIComponent(
       `Olá! Gostaria de fazer uma encomenda:\n\n` +
         `Nome: ${name}\n` +
-        `Celular: ${phone}\n` +
+        `WhatsApp: ${phone}\n` +
         `Produto: ${selectedProduct}\n` +
         `Data desejada: ${date}`,
     );
@@ -61,16 +61,16 @@ export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
       <div className="relative mx-auto max-w-6xl px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
           <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">
-            After Coffee · Encomendas{unitName ? ` · ${unitName}` : ""}
+            {unitName ? `Encomendas · ${unitName}` : "Encomendas Colher de Pau"}
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-cream leading-tight">
-            Eternize e transforme seus momentos com as nossas{" "}
-            <em className="text-caramel">encomendas exclusivas.</em>
+            Leve a Colher de Pau para seus{" "}
+            <em className="text-caramel">encontros, presentes e celebrações.</em>
           </h2>
           <p className="mt-6 text-cream/75 text-lg leading-relaxed max-w-lg">
             {unitName
-              ? `A unidade ${unitName} recebe pedidos de bolos inteiros, cestas de café da manhã e itens para eventos sob medida.`
-              : "Comercializamos bolos inteiros, cestas de café da manhã majestosas e fornecemos itens para eventos executados inteiramente sob medida para a sua celebração."}
+              ? `A unidade ${unitName} prepara bolos inteiros, cestas de café da manhã e itens para eventos sob medida.`
+              : "Preparamos bolos inteiros, cestas de café da manhã e itens para eventos, com combinações pensadas para a sua ocasião."}
           </p>
         </Reveal>
 
@@ -94,12 +94,12 @@ export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="order-phone" className="text-cream/80">
-                  Celular
+                  WhatsApp
                 </Label>
                 <Input
                   id="order-phone"
                   className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/40 rounded-xl h-11"
-                  placeholder="(27) 9..."
+                  placeholder="(27) 9....-...."
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
@@ -107,26 +107,26 @@ export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
             </div>
             <div className="space-y-2">
               <Label id="order-type-label" className="text-cream/80">
-                Natureza da encomenda
+                Tipo de encomenda
               </Label>
               <Select value={product} onValueChange={setProduct}>
                 <SelectTrigger
                   aria-labelledby="order-type-label"
                   className="bg-cream/10 border-cream/20 text-cream rounded-xl h-11"
                 >
-                  <SelectValue placeholder="Selecione uma opção" />
+                  <SelectValue placeholder="Escolha uma opção" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="bolo">Bolo inteiro</SelectItem>
                   <SelectItem value="cesta">Cesta de café da manhã</SelectItem>
-                  <SelectItem value="evento">Coffee break / evento</SelectItem>
-                  <SelectItem value="outro">Outro</SelectItem>
+                  <SelectItem value="evento">Coffee break ou evento</SelectItem>
+                  <SelectItem value="outro">Outro pedido</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
               <Label htmlFor="order-date" className="text-cream/80">
-                Data prevista
+                Data desejada
               </Label>
               <Input
                 id="order-date"
@@ -140,7 +140,7 @@ export function Orders({ unitName, whatsappHref: _whatsappHref }: OrdersProps) {
               type="submit"
               className="w-full rounded-full bg-caramel hover:bg-caramel/90 text-primary-foreground h-12 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
             >
-              <MessageCircle className="h-4 w-4 mr-1" /> Solicitar Orçamento Ágil via WhatsApp
+              <MessageCircle className="h-4 w-4 mr-1" /> Pedir orçamento pelo WhatsApp
             </Button>
           </form>
         </Reveal>

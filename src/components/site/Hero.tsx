@@ -16,7 +16,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="uppercase text-xs tracking-[0.3em] text-caramel mb-6"
           >
-            Cafeteria & Bistrô · desde 2017 · Vila Velha
+            Cafeteria e bistrô desde 2017, em Vila Velha
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground"
           >
-            Um cantinho de <em className="text-caramel">afeto</em> para viver com calma.
+            Um cantinho de <em className="text-caramel">afeto</em> para saborear sem pressa.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -32,8 +32,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            Desde 2017 proporcionando experiências gastronômicas singulares. O conforto inigualável
-            de um legítimo cantinho de Paris aguardando por você em nossas casas em Vila Velha.
+            Desde 2017, a Colher de Pau recebe você com cafés especiais, confeitaria artesanal e
+            pratos de bistrô em duas casas de Vila Velha, com o charme de um cantinho de Paris.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -42,8 +42,8 @@ export function Hero() {
             className="mt-10 max-w-2xl"
           >
             <p className="mb-5 max-w-xl text-sm leading-7 text-foreground/75 sm:text-base">
-              Conheça a casa que combina com o seu momento ou fale com a gente para encomendas,
-              cestas e celebrações especiais.
+              Escolha a casa que combina com o seu momento ou fale com a gente para encomendas,
+              cestas e celebrações.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button
@@ -52,7 +52,7 @@ export function Hero() {
                 className="h-12 rounded-full bg-caramel px-6 text-primary-foreground hover:bg-bistro"
               >
                 <a href="#casas">
-                  Conheça nossas unidades <ArrowDown className="h-4 w-4" />
+                  Conhecer as casas <ArrowDown className="h-4 w-4" />
                 </a>
               </Button>
               <Button
@@ -62,7 +62,7 @@ export function Hero() {
                 className="h-12 rounded-full border-caramel/40 px-6 text-caramel hover:bg-caramel hover:text-primary-foreground"
               >
                 <a href={generalOrdersHref}>
-                  <MessageCircle className="h-4 w-4" /> Fazer encomenda
+                  <MessageCircle className="h-4 w-4" /> Pedir encomenda
                 </a>
               </Button>
             </div>

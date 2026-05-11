@@ -41,7 +41,7 @@ export function UnitQuickActions({ unit, mode = "full" }: UnitQuickActionsProps)
             className="h-12 rounded-full border-caramel/40 px-6 text-caramel hover:bg-caramel hover:text-primary-foreground"
           >
             <a href={unit.wineMenuPdf} target="_blank" rel="noopener">
-              <Wine className="h-4 w-4" /> {unit.wineMenuLabel ?? "Carta de vinhos"}
+              <Wine className="h-4 w-4" /> {unit.wineMenuLabel ?? "Drinks e vinhos"}
             </a>
           </Button>
         )}
@@ -53,7 +53,7 @@ export function UnitQuickActions({ unit, mode = "full" }: UnitQuickActionsProps)
             className="h-12 rounded-full border-foreground/15 px-6"
           >
             <a href={unit.whatsapp} target="_blank" rel="noopener">
-              <MessageCircle className="h-4 w-4 text-caramel" /> WhatsApp
+              <MessageCircle className="h-4 w-4 text-caramel" /> Falar no WhatsApp
             </a>
           </Button>
         )}

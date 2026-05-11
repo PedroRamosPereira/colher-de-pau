@@ -5,16 +5,16 @@ import { UnitProvider } from "@/context/UnitContext";
 export const Route = createFileRoute("/praia-da-costa")({
   head: () => ({
     meta: [
-      { title: "Colher de Pau Praia da Costa · Cafeteria & Bistrô" },
+      { title: "Colher de Pau Praia da Costa · Cafeteria e Bistrô" },
       {
         name: "description",
         content:
-          "A unidade da Praia da Costa traz cafés especiais, sanduíches autorais e confeitaria artesanal a poucos passos do mar.",
+          "A Colher de Pau Praia da Costa recebe você com cafés especiais, sanduíches autorais e confeitaria artesanal a poucos passos do mar.",
       },
       { property: "og:title", content: "Colher de Pau Praia da Costa" },
       {
         property: "og:description",
-        content: "Cafés rápidos, doces para levar e encomendas a poucos passos da orla.",
+        content: "Cafés especiais, doces para levar e encomendas a poucos passos da orla.",
       },
       { property: "og:image", content: "/og-praia-da-costa.jpg" },
       { property: "og:image:width", content: "1200" },

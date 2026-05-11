@@ -6,17 +6,17 @@ const rituals = [
   {
     icon: Coffee,
     title: "Café da Rainha",
-    text: "Uma manhã generosa, servida com docinhos da casa, frutas frescas e o pão do dia.",
+    text: "Uma manhã farta, com docinhos da casa, frutas frescas e o pão do dia.",
   },
   {
     icon: Moon,
     title: "After Coffee",
-    text: "Quando a tarde se inclina, a casa muda de tom: luz baixa, taças e pratos compartilháveis.",
+    text: "No fim da tarde, a casa ganha luz baixa, taças e pratos para compartilhar.",
   },
   {
     icon: PawPrint,
-    title: "Pet Friendly",
-    text: "Suas varandas recebem com carinho a sua companhia de quatro patas.",
+    title: "Pet friendly",
+    text: "Nossas varandas recebem você e seu companheiro de quatro patas.",
   },
 ];
 
@@ -41,12 +41,12 @@ export function Essence() {
           <Reveal>
             <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">A Essência</p>
             <h2 className="font-serif text-4xl md:text-5xl leading-tight text-foreground">
-              Afeto, cuidado e acolhimento. <em className="text-caramel">Eis o nosso ofício.</em>
+              Afeto, cuidado e acolhimento <em className="text-caramel">guiam a nossa cozinha.</em>
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
-              Fundada em 2017 por Samira Norbim, a Colher de Pau nasceu para ser um refúgio. Um
-              cantinho de Paris em Vila Velha onde o tempo se demora, o pão de fermentação natural
-              perfuma o ar e cada gesto é desenhado para você desacelerar.
+              Samira Norbim fundou a Colher de Pau em 2017 para criar um refúgio em Vila Velha. A
+              casa mistura pães de fermentação natural, confeitaria artesanal e pequenos rituais de
+              pausa, como um cantinho de Paris perto de você.
             </p>
           </Reveal>
 
@@ -66,9 +66,9 @@ export function Essence() {
             <div className="mt-10 flex gap-4 rounded-2xl bg-accent/60 border border-border p-5">
               <Info className="h-5 w-5 text-caramel shrink-0 mt-0.5" />
               <p className="text-sm text-foreground/80 leading-relaxed">
-                <span className="font-medium">Um lembrete delicado:</span> tudo é preparado de forma
-                artesanal. Em finais de semana movimentados, alguns pratos pedem o tempo que a alta
-                qualidade exige. Aproveite para <em>desacelerar</em>. Vale cada minuto.
+                <span className="font-medium">Um lembrete da casa:</span> preparamos tudo de forma
+                artesanal. Em fins de semana movimentados, alguns pratos pedem mais tempo. Aproveite
+                a pausa, a casa foi pensada para isso.
               </p>
             </div>
           </Reveal>

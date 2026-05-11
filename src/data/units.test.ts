@@ -16,6 +16,6 @@ describe("unit menu links", () => {
     expect(unit.menuPdf).toBe("/cardapio-colher-de-pau-praia-da-costa-dez.pdf");
     expect(unit.menuLabel).toBe("Cardápio da casa");
     expect(unit.wineMenuPdf).toBe("/carta-de-drinks-e-vinhos-colher-de-pau-praia-da-costa-mar.pdf");
-    expect(unit.wineMenuLabel).toBe("Carta de drinks e vinhos");
+    expect(unit.wineMenuLabel).toBe("Drinks e vinhos");
   });
 });

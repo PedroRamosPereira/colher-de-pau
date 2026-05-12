@@ -25,6 +25,15 @@ export function Houses() {
             return (
               <Reveal key={h.slug} delay={0.1 * i}>
                 <div className="rounded-3xl border border-border bg-card p-8 lg:p-10 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="mb-7 aspect-[4/3] overflow-hidden rounded-[1.5rem]">
+                    <img
+                      src={h.image}
+                      alt={h.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
                   <div className="flex items-start justify-between gap-4">
                     <p className="text-xs uppercase tracking-[0.25em] text-caramel">{h.tag}</p>
                     {h.petFriendly && (

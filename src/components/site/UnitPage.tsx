@@ -8,7 +8,6 @@ import { MenuSection } from "./Menu";
 import { Recommendations } from "./Recommendations";
 import { Orders } from "./Orders";
 import { UnitQuickActions } from "./UnitQuickActions";
-import heroImg from "@/assets/hero.jpg";
 import logo from "@/assets/logo.png";
 
 export function UnitPage() {
@@ -19,7 +18,7 @@ export function UnitPage() {
       <Navbar />
       <main>
         <section id="top" className="relative">
-          <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 pb-12 pt-6 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-20 lg:pt-20">
+          <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-8 pt-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-14 lg:pt-14">
             <div className="lg:col-span-6">
               <Link
                 to="/"
@@ -64,7 +63,7 @@ export function UnitPage() {
 
             <Reveal className="lg:col-span-6">
               <div className="relative arch-image aspect-[4/5] shadow-2xl">
-                <img src={heroImg} alt={unit.name} className="h-full w-full object-cover" />
+                <img src={unit.image} alt={unit.name} className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-bistro/55 via-bistro/10 to-transparent" />
                 <img
                   src={logo}
@@ -79,7 +78,7 @@ export function UnitPage() {
 
         <Recommendations />
 
-        <section className="py-20 lg:py-28 bg-accent/40">
+        <section className="bg-accent/40 py-16 lg:py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <Reveal>
               <p className="uppercase text-xs tracking-[0.3em] text-caramel mb-5">

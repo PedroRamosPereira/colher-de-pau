@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import type { Unit } from "@/data/units";
-import { ExternalLink, MapPin, MessageCircle, UtensilsCrossed, Wine } from "lucide-react";
+import {
+  Clock,
+  Croissant,
+  ExternalLink,
+  MapPin,
+  MessageCircle,
+  UtensilsCrossed,
+  Wine,
+} from "lucide-react";
 
 type UnitQuickActionsProps = {
   unit: Unit;
@@ -45,6 +53,18 @@ export function UnitQuickActions({ unit, mode = "full" }: UnitQuickActionsProps)
             </a>
           </Button>
         )}
+        {unit.brunchMenuPdf && (
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="h-12 rounded-full border-caramel/40 px-6 text-caramel hover:bg-caramel hover:text-primary-foreground"
+          >
+            <a href={unit.brunchMenuPdf} target="_blank" rel="noopener">
+              <Croissant className="h-4 w-4" /> {unit.brunchMenuLabel ?? "Brunch"}
+            </a>
+          </Button>
+        )}
         {!isMenuOnly && (
           <Button
             asChild
@@ -71,10 +91,21 @@ export function UnitQuickActions({ unit, mode = "full" }: UnitQuickActionsProps)
         )}
       </div>
       {isMenuOnly && (
-        <p className="mt-3 border-t border-caramel/15 pt-3 text-xs leading-5 text-muted-foreground sm:text-sm">
-          Veja o cardápio da unidade, confira as sugestões da casa e escolha com calma antes da
-          visita.
-        </p>
+        <div className="mt-3 space-y-2 border-t border-caramel/15 pt-3 text-xs leading-5 text-muted-foreground sm:text-sm">
+          <p>
+            Veja o cardápio da unidade, confira as sugestões da casa e escolha com calma antes da
+            visita.
+          </p>
+          {unit.brunchAvailability && (
+            <p className="inline-flex items-start gap-2 text-foreground/75">
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-caramel" />
+              <span>
+                <span className="font-medium text-foreground">Brunch:</span>{" "}
+                {unit.brunchAvailability}
+              </span>
+            </p>
+          )}
+        </div>
       )}
     </div>
   );

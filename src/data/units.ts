@@ -1,6 +1,17 @@
 import cakesImg from "@/assets/cakes.jpg";
 import empanadaImg from "@/assets/empanada.jpg";
 import coffeeImg from "@/assets/coffee.jpg";
+import itaparicaStoreImg from "@/assets/site/foto-loja-itaparica.jpg";
+import praiaDaCostaStoreImg from "@/assets/site/foto-loja-praia-da-costa.jpg";
+import brunchTableImg from "@/assets/site/foto-mesa-brunch-e-cafe.jpg";
+import croissantEggsImg from "@/assets/site/foto-croissant-com-ovos.jpg";
+import waffleDrinkImg from "@/assets/site/foto-waffle-bebida.jpg";
+import cakeCoffeeImg from "@/assets/site/foto-bolo-com-cafe.jpg";
+import icedDrinkImg from "@/assets/site/foto-drink-ou-cafe-gelado.jpg";
+import deliveryImg from "@/assets/site/foto-entrega.jpg";
+import toastedMarshmallowImg from "@/assets/site/bebida-marshmallow-tostado.jpg";
+import chocolateCakeSliceImg from "@/assets/site/fatia-bolo-chocolate-morango.jpg";
+import puddingCakeImg from "@/assets/site/bolo-pudim-inteiro.jpg";
 
 export type MenuItem = {
   name: string;
@@ -16,6 +27,7 @@ export type WeeklyPick = {
   desc: string;
   price: string;
   image: string;
+  kind: "meal" | "drink" | "dessert";
 };
 
 export type Unit = {
@@ -31,8 +43,12 @@ export type Unit = {
   maps: string;
   ifood?: string;
   instagram: string;
+  image: string;
   menuPdf: string;
   menuLabel?: string;
+  brunchMenuPdf?: string;
+  brunchMenuLabel?: string;
+  brunchAvailability?: string;
   wineMenuPdf?: string;
   wineMenuLabel?: string;
   about: string;
@@ -54,8 +70,12 @@ const itaparica: Unit = {
   maps: "https://maps.google.com/?q=Rua+Ibitirama+253+Praia+de+Itaparica+Vila+Velha",
   ifood: "https://www.ifood.com.br/delivery/vila-velha-es/colher-de-pau-itaparica",
   instagram: "https://instagram.com/colherdepaucafeteriabistro",
+  image: itaparicaStoreImg,
   menuPdf: "/cardapio-colher-de-pau-praia-de-itaparica.pdf",
   menuLabel: "Cardápio da casa",
+  brunchMenuPdf: "/cardapio-manha-brunch-itaparica.pdf",
+  brunchMenuLabel: "Cardápio especial de brunch",
+  brunchAvailability: "Terça a sexta, das 8h às 14h, exceto feriados.",
   about:
     "A história começou em Itaparica. Samira Norbim transformou a primeira casa da Colher de Pau em um pedacinho de Paris no litoral capixaba, com pães de fermentação natural, confeitaria autoral, cafés especiais e varanda pet friendly.",
   highlights: [
@@ -77,21 +97,21 @@ const itaparica: Unit = {
       name: "Trio de Bolos",
       desc: "Três bolos do dia em fatias generosas para compartilhar.",
       price: "R$ 70",
-      image: cakesImg,
+      image: cakeCoffeeImg,
       category: "confeitaria",
     },
     {
       name: "Brownie Bowl",
       desc: "Brownie quente com sorvete, morangos, Nutella e calda.",
       price: "R$ 41",
-      image: cakesImg,
+      image: chocolateCakeSliceImg,
       category: "confeitaria",
     },
     {
       name: "Bolo Pudim",
       desc: "Bolo e pudim na mesma fatia, com textura cremosa.",
       price: "R$ 28",
-      image: cakesImg,
+      image: puddingCakeImg,
       category: "confeitaria",
     },
     {
@@ -105,14 +125,14 @@ const itaparica: Unit = {
       name: "Brunch Samira",
       desc: "Waffle com Nutella e morango, panquecas, toast e café filtrado.",
       price: "R$ 105",
-      image: empanadaImg,
+      image: brunchTableImg,
       category: "bistro",
     },
     {
       name: "Croissant com Ovo Poché",
       desc: "Folhado artesanal com gema cremosa e ervas frescas.",
       price: "R$ 38",
-      image: empanadaImg,
+      image: croissantEggsImg,
       category: "bistro",
     },
     {
@@ -133,7 +153,7 @@ const itaparica: Unit = {
       name: "Cappuccino Colher de Pau",
       desc: "Espresso com leite vaporizado e marshmallow tostado.",
       price: "R$ 33",
-      image: coffeeImg,
+      image: toastedMarshmallowImg,
       category: "cafeteria",
     },
     {
@@ -147,7 +167,7 @@ const itaparica: Unit = {
       name: "MaraCoffee",
       desc: "Geleia de maracujá, água tônica, gelo e espresso.",
       price: "R$ 28",
-      image: coffeeImg,
+      image: icedDrinkImg,
       category: "cafeteria",
     },
     {
@@ -161,25 +181,28 @@ const itaparica: Unit = {
   weekly: [
     [
       {
-        tag: "Brunch do dia",
-        name: "Brunch Colher de Pau",
-        desc: "Cesta de pães, waffle, ovos com bacon, cafés filtrados e 2 sucos.",
-        price: "R$ 138",
+        tag: "Favorito da casa",
+        name: "Croissant Gruyère",
+        desc: "Queijo gruyère, presunto royale e bechamel da casa, finalizado gratinado.",
+        price: "R$ 42",
         image: empanadaImg,
+        kind: "meal",
       },
       {
         tag: "Doce do dia",
         name: "Brownie Bowl",
         desc: "Brownie quente com sorvete, morangos, Nutella e calda.",
         price: "R$ 41",
-        image: cakesImg,
+        image: chocolateCakeSliceImg,
+        kind: "dessert",
       },
       {
         tag: "Café do dia",
         name: "Cappuccino Colher de Pau",
         desc: "Espresso com leite vaporizado e marshmallow tostado.",
         price: "R$ 33",
-        image: coffeeImg,
+        image: toastedMarshmallowImg,
+        kind: "drink",
       },
     ],
     [
@@ -188,21 +211,24 @@ const itaparica: Unit = {
         name: "Chocolate Colher de Pau",
         desc: "Chocolate cremoso com marshmallow tostado.",
         price: "R$ 30",
-        image: coffeeImg,
+        image: toastedMarshmallowImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Bolo da Tarde",
         desc: "Bolo da vovó, sabores da vitrine.",
         price: "R$ 22",
-        image: cakesImg,
+        image: cakeCoffeeImg,
+        kind: "dessert",
       },
       {
         tag: "Salgado do dia",
         name: "Croissant Caprese",
         desc: "Folhado com tomate, muçarela e manjericão fresco.",
         price: "R$ 32",
-        image: empanadaImg,
+        image: croissantEggsImg,
+        kind: "meal",
       },
     ],
     [
@@ -211,7 +237,8 @@ const itaparica: Unit = {
         name: "Brunch Individual",
         desc: "Croissant, ovos mexidos, bacon, tomate confit, cream cheese e mimosa.",
         price: "R$ 68",
-        image: empanadaImg,
+        image: croissantEggsImg,
+        kind: "meal",
       },
       {
         tag: "Café do dia",
@@ -219,6 +246,7 @@ const itaparica: Unit = {
         desc: "Café coado de 200 ml, com perfil floral e adocicado.",
         price: "R$ 20",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
@@ -226,6 +254,7 @@ const itaparica: Unit = {
         desc: "Doce de leite, banana e chantilly.",
         price: "R$ 38",
         image: cakesImg,
+        kind: "dessert",
       },
     ],
     [
@@ -234,21 +263,24 @@ const itaparica: Unit = {
         name: "Brunch Samira",
         desc: "Waffle com Nutella e morango, panquecas, toast e café filtrado.",
         price: "R$ 105",
-        image: empanadaImg,
+        image: waffleDrinkImg,
+        kind: "meal",
       },
       {
         tag: "Refrescante",
         name: "MaraCoffee",
         desc: "Geleia de maracujá, água tônica, gelo e espresso.",
         price: "R$ 28",
-        image: coffeeImg,
+        image: icedDrinkImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Trio de Bolos",
         desc: "Três sabores clássicos com calda, para compartilhar.",
         price: "R$ 70",
-        image: cakesImg,
+        image: cakeCoffeeImg,
+        kind: "dessert",
       },
     ],
     [
@@ -258,6 +290,7 @@ const itaparica: Unit = {
         desc: "Croissant recheado com brigadeiro de pistache.",
         price: "R$ 49",
         image: cakesImg,
+        kind: "dessert",
       },
       {
         tag: "Café do dia",
@@ -265,6 +298,7 @@ const itaparica: Unit = {
         desc: "Leite vaporizado com espresso encorpado.",
         price: "R$ 17",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Salgado do dia",
@@ -272,6 +306,7 @@ const itaparica: Unit = {
         desc: "Pão de fermentação natural, cream cheese, ovos e bacon.",
         price: "R$ 36",
         image: empanadaImg,
+        kind: "meal",
       },
     ],
     [
@@ -281,13 +316,15 @@ const itaparica: Unit = {
         desc: "Aperol, água com gás, espumante e toque de laranja.",
         price: "R$ 38",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Chocolatudo",
         desc: "Bolo de chocolate quente, brigadeiro e calda de baunilha.",
         price: "R$ 45",
-        image: cakesImg,
+        image: chocolateCakeSliceImg,
+        kind: "dessert",
       },
       {
         tag: "After Coffee",
@@ -295,15 +332,17 @@ const itaparica: Unit = {
         desc: "Queijo gruyère, presunto royale e bechamel da casa, finalizado gratinado.",
         price: "R$ 42",
         image: empanadaImg,
+        kind: "meal",
       },
     ],
     [
       {
-        tag: "Brunch do dia",
-        name: "Bowl 2",
-        desc: "Croissant na chapa com requeijão, ovos, tomate confit, bacon e suco.",
-        price: "R$ 59",
-        image: empanadaImg,
+        tag: "Sábado na casa mãe",
+        name: "Croissant com Ovo Poché",
+        desc: "Folhado artesanal com gema cremosa e ervas frescas.",
+        price: "R$ 38",
+        image: croissantEggsImg,
+        kind: "meal",
       },
       {
         tag: "Refrescante",
@@ -311,6 +350,7 @@ const itaparica: Unit = {
         desc: "Hibisco e frutas vermelhas.",
         price: "R$ 24",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
@@ -318,6 +358,7 @@ const itaparica: Unit = {
         desc: "Strudel de maçã com canela e sorvete.",
         price: "R$ 39",
         image: cakesImg,
+        kind: "dessert",
       },
     ],
   ],
@@ -336,6 +377,7 @@ const praiaDaCosta: Unit = {
   maps: "https://maps.google.com/?q=Rua+Rio+Branco+97+Praia+da+Costa+Vila+Velha",
   ifood: "https://www.ifood.com.br/delivery/vila-velha-es/colher-de-pau-praia-da-costa",
   instagram: "https://instagram.com/colherdepaucafeteriabistro",
+  image: praiaDaCostaStoreImg,
   menuPdf: "/cardapio-colher-de-pau-praia-da-costa-dez.pdf",
   menuLabel: "Cardápio da casa",
   wineMenuPdf: "/carta-de-drinks-e-vinhos-colher-de-pau-praia-da-costa-mar.pdf",
@@ -361,28 +403,28 @@ const praiaDaCosta: Unit = {
       name: "Naked Cake da Casa",
       desc: "Bolo inteiro com camadas de creme e frutas da estação.",
       price: "sob consulta",
-      image: cakesImg,
+      image: deliveryImg,
       category: "confeitaria",
     },
     {
       name: "Donuts de Frutas Vermelhas",
       desc: "Massa macia, glacê delicado e geleia artesanal.",
       price: "R$ 18",
-      image: cakesImg,
+      image: chocolateCakeSliceImg,
       category: "confeitaria",
     },
     {
       name: "Cookie Recheado",
       desc: "Cookie crocante por fora, com recheio cremoso de doce de leite.",
       price: "R$ 14",
-      image: cakesImg,
+      image: cakeCoffeeImg,
       category: "confeitaria",
     },
     {
       name: "Toast Praia da Costa",
       desc: "Pão de fermentação natural com abacate cremoso e ovo poché.",
       price: "R$ 34",
-      image: empanadaImg,
+      image: croissantEggsImg,
       category: "bistro",
     },
     {
@@ -410,7 +452,7 @@ const praiaDaCosta: Unit = {
       name: "Frapê de Cappuccino",
       desc: "Cappuccino gelado e cremoso, com nota de cacau.",
       price: "R$ 29",
-      image: coffeeImg,
+      image: icedDrinkImg,
       category: "cafeteria",
     },
     {
@@ -435,14 +477,16 @@ const praiaDaCosta: Unit = {
         name: "Toast Praia da Costa",
         desc: "Pão de fermentação natural com abacate cremoso e ovo poché.",
         price: "R$ 34",
-        image: empanadaImg,
+        image: croissantEggsImg,
+        kind: "meal",
       },
       {
         tag: "Doce do dia",
         name: "Naked Cake",
         desc: "Camadas de creme e frutas da estação.",
         price: "sob consulta",
-        image: cakesImg,
+        image: deliveryImg,
+        kind: "dessert",
       },
       {
         tag: "Café do dia",
@@ -450,6 +494,7 @@ const praiaDaCosta: Unit = {
         desc: "Espresso encorpado sobre uma camada generosa de leite condensado.",
         price: "R$ 18",
         image: coffeeImg,
+        kind: "drink",
       },
     ],
     [
@@ -459,13 +504,15 @@ const praiaDaCosta: Unit = {
         desc: "Grãos especiais em uma xícara encorpada para o ritmo da orla.",
         price: "R$ 12",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Cookie Recheado",
         desc: "Cookie crocante por fora, com recheio cremoso de doce de leite.",
         price: "R$ 14",
-        image: cakesImg,
+        image: cakeCoffeeImg,
+        kind: "dessert",
       },
       {
         tag: "Salgado do dia",
@@ -473,6 +520,7 @@ const praiaDaCosta: Unit = {
         desc: "Massa dourada com recheios autorais que mudam a cada dia.",
         price: "R$ 24",
         image: empanadaImg,
+        kind: "meal",
       },
     ],
     [
@@ -482,6 +530,7 @@ const praiaDaCosta: Unit = {
         desc: "Pão rústico com brie, damasco e rúcula.",
         price: "R$ 32",
         image: empanadaImg,
+        kind: "meal",
       },
       {
         tag: "Refrescante",
@@ -489,13 +538,15 @@ const praiaDaCosta: Unit = {
         desc: "Refrescante para depois da praia.",
         price: "R$ 16",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Donuts de Frutas Vermelhas",
         desc: "Massa macia, glacê delicado e geleia artesanal.",
         price: "R$ 18",
-        image: cakesImg,
+        image: chocolateCakeSliceImg,
+        kind: "dessert",
       },
     ],
     [
@@ -504,21 +555,24 @@ const praiaDaCosta: Unit = {
         name: "Toast Praia da Costa",
         desc: "Pão de fermentação natural com abacate cremoso e ovo poché.",
         price: "R$ 34",
-        image: empanadaImg,
+        image: croissantEggsImg,
+        kind: "meal",
       },
       {
         tag: "Café do dia",
         name: "Frapê de Cappuccino",
         desc: "Cappuccino gelado e cremoso, com nota de cacau.",
         price: "R$ 29",
-        image: coffeeImg,
+        image: icedDrinkImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Cookie Recheado",
         desc: "Cookie crocante por fora, com recheio cremoso de doce de leite.",
         price: "R$ 14",
-        image: cakesImg,
+        image: cakeCoffeeImg,
+        kind: "dessert",
       },
     ],
     [
@@ -528,6 +582,7 @@ const praiaDaCosta: Unit = {
         desc: "Pão rústico com brie, damasco e rúcula.",
         price: "R$ 32",
         image: empanadaImg,
+        kind: "meal",
       },
       {
         tag: "Café do dia",
@@ -535,13 +590,15 @@ const praiaDaCosta: Unit = {
         desc: "Grãos especiais em uma xícara encorpada para o ritmo da orla.",
         price: "R$ 12",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Donuts de Frutas Vermelhas",
         desc: "Massa macia, glacê delicado e geleia artesanal.",
         price: "R$ 18",
-        image: cakesImg,
+        image: chocolateCakeSliceImg,
+        kind: "dessert",
       },
     ],
     [
@@ -551,6 +608,7 @@ const praiaDaCosta: Unit = {
         desc: "Massa dourada com recheios autorais que mudam a cada dia.",
         price: "R$ 24",
         image: empanadaImg,
+        kind: "meal",
       },
       {
         tag: "Refrescante",
@@ -558,13 +616,15 @@ const praiaDaCosta: Unit = {
         desc: "Refrescante para depois da praia.",
         price: "R$ 16",
         image: coffeeImg,
+        kind: "drink",
       },
       {
         tag: "Doce do dia",
         name: "Naked Cake",
         desc: "Fatia generosa do dia.",
         price: "sob consulta",
-        image: cakesImg,
+        image: deliveryImg,
+        kind: "dessert",
       },
     ],
     [
@@ -573,14 +633,16 @@ const praiaDaCosta: Unit = {
         name: "Toast Praia da Costa",
         desc: "Pão de fermentação natural com abacate cremoso e ovo poché.",
         price: "R$ 34",
-        image: empanadaImg,
+        image: croissantEggsImg,
+        kind: "meal",
       },
       {
         tag: "Doce do dia",
         name: "Cookie Recheado",
         desc: "Cookie crocante por fora, com recheio cremoso de doce de leite.",
         price: "R$ 14",
-        image: cakesImg,
+        image: cakeCoffeeImg,
+        kind: "dessert",
       },
       {
         tag: "Café do dia",
@@ -588,6 +650,7 @@ const praiaDaCosta: Unit = {
         desc: "Espresso encorpado sobre uma camada generosa de leite condensado.",
         price: "R$ 18",
         image: coffeeImg,
+        kind: "drink",
       },
     ],
   ],
